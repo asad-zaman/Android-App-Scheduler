@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
+
+    id("kotlin-kapt")
 }
 
 android {
@@ -43,4 +46,23 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.activity.ktx)
+
+    // Lifecycle
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.rxjava3)
+    kapt(libs.room.compiler)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // RxJava
+    implementation(libs.rxjava)
+    implementation(libs.rxandroid)
 }
