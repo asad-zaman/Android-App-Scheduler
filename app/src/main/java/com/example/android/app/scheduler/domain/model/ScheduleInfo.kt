@@ -1,8 +1,10 @@
 package com.example.android.app.scheduler.domain.model
 
+import java.io.Serializable
+
 data class ScheduleInfo(
-    val id: Int,
     val packageName: String,
     val timeInMillis: Long,
-    val status: ScheduleStatus
-)
+    val status: ScheduleStatus,
+    val id: Int? = null,
+): Serializable

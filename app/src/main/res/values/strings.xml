@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Android App Scheduler</string>
+    <string name="loading">Please Wait...</string>
+    <string name="choose_app">Choose App</string>
+    <string name="select_date_and_time"><![CDATA[Select Date & Time]]></string>
+    <string name="set_schedule">Set Schedule</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_schedule">Add Schedule</string>
+    <string name="create_update_schedule">Update Schedule</string>
+    <string name="schedule_list">Schedule List</string>
 </resources>
