@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android App Scheduler</string>
+    <string name="app_name">App Scheduler</string>
     <string name="loading">Please Wait...</string>
     <string name="choose_app">Choose App</string>
     <string name="select_date_and_time"><![CDATA[Select Date & Time]]></string>
