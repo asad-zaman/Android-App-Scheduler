@@ -2,22 +2,23 @@ package com.example.android.app.scheduler.presentation.app_picker
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.android.app.scheduler.domain.model.AppInfo
+import com.example.android.app.scheduler.presentation.schedule_viewer.ScheduleViewerUiState
 import com.example.android.app.scheduler.presentation.shared.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class AppPickerViewModel @Inject constructor(
     private val packageManager: PackageManager
 ): BaseViewModel(packageManager) {
-    private val _apps = MutableLiveData<List<AppInfo>>()
-    val apps: LiveData<List<AppInfo>> = _apps
+    private val _uiState = MutableStateFlow<AppPickerUiState>(AppPickerUiState.Loading)
+    val uiState: StateFlow<AppPickerUiState> = _uiState
 
     init {
         loadInstalledApps()
@@ -28,13 +29,9 @@ class AppPickerViewModel @Inject constructor(
             Observable.fromCallable { getInstalledApps() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { _loading.value  = true }
-                .doOnTerminate { _loading.value = false }
                 .subscribe(
-                    {
-                        _apps.value = it
-                    },
-                    { _message.value = "Failed to load installed apps" }
+                    { _uiState.value = AppPickerUiState.Success(it) },
+                    { _uiState.value = AppPickerUiState.Error("Failed to load installed apps") }
                 )
         )
     }

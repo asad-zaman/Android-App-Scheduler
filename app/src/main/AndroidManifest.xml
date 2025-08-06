@@ -20,32 +20,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidAppScheduler"
-        tools:targetApi="31" >
+        android:theme="@style/Theme.AppScheduler"
+        tools:targetApi="31">
         <activity
-            android:name=".presentation.schedule_viewer.ScheduleViewerActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AndroidAppScheduler">
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppScheduler">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".presentation.schedule_editor.ScheduleEditorActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AndroidAppScheduler"/>
-
-        <activity
-            android:name=".presentation.app_picker.AppPickerActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AndroidAppScheduler"/>
-        
         <receiver
             android:name=".platform.AppLaunchReceiver"
             android:exported="true" />
-
     </application>
 
 </manifest>

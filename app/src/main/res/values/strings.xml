@@ -9,4 +9,7 @@
     <string name="add_schedule">Add Schedule</string>
     <string name="create_update_schedule">Update Schedule</string>
     <string name="schedule_list">Schedule List</string>
+    <string name="back">Back</string>
+    <string name="please_update_datetime_to_schedule">Please, Update DateTime to Schedule</string>
+    <string name="please_choose_app_to_schedule">Please, Choose App to Schedule</string>
 </resources>
